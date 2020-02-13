@@ -8,7 +8,7 @@
 </p>
 
 ## About This
-Laravel 5.8 から MongoDB に接続して登録されたデータを取得するサンプルです．説明は [rinsaka.com](https://rinsaka.com/laravel/) にあります．
+Laravel 5.8 から MongoDB に接続して登録されたデータを取得するサンプルです．説明は [rinsaka.com](https://rinsaka.com/laravel/mongo01-abst.html) にあります．
 
 ## About Laravel
 
