@@ -11,7 +11,8 @@ class CommentsController extends Controller
   public function index()
   {
     $comments = Comment::orderBy('created_at', 'DESC')
-                  ->get();
+                  // ->get();
+                  ->paginate(5);
     // dd($comments);
     return view('comments.index')
                   ->with('comments', $comments);

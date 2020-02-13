@@ -15,6 +15,9 @@
       </li>
     @endforeach
   </ul>
+  <div>
+  {{ $comments->links() }}
+</div>
 
   <h1>コメント投稿</h1>
   <div>
