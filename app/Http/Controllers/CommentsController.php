@@ -23,6 +23,9 @@ class CommentsController extends Controller
     $comment = Comment::where('_id', '=', $_id)
                       ->first();
     // dd($_id, $comment);
+    if (!$comment) {
+      return redirect('/comments');
+    }
     return view('comments.show')
           ->with('comment', $comment);
   }
