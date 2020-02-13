@@ -74,4 +74,15 @@ class CommentsController extends Controller
     $comment->save();
     return redirect()->action('CommentsController@show', $request->_id);
   }
+
+  public function destroy($_id)
+  {
+    $comment = Comment::where('_id', '=', $_id)
+                  ->first();
+    if (!$comment) {
+      return redirect('/comments');
+    }
+    $comment->delete();
+    return redirect('/comments');
+  }
 }

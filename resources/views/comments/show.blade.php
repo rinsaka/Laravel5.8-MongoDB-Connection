@@ -19,9 +19,16 @@
     <dd>{{ $comment->updated_at }}</dd>
   </dl>
   <p>
-    <a href="{{ action('CommentsController@edit', $comment->id) }}">
+    <a href="{{ action('CommentsController@edit', $comment->_id) }}">
       ［編集］
     </a>
   </p>
+  <div>
+    <form action="{{ action('CommentsController@destroy', $comment->_id) }}" method="post">
+      @csrf
+      @method('DELETE')
+      <button>コメント投稿の削除</button>
+    </form>
+  </div>
 </body>
 </html>
