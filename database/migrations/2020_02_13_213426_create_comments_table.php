@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
 {
+  // MongoDB のコネクションを指定する
+  protected $connection = 'mongodb';
   /**
    * Run the migrations.
    *
@@ -13,10 +15,17 @@ class CreateCommentsTable extends Migration
    */
   public function up()
   {
-    Schema::create('comments', function (Blueprint $table) {
-      $table->bigIncrements('id');
-      $table->timestamps();
-    });
+    // Schema::create('comments', function (Blueprint $table) {
+    //   $table->bigIncrements('id');
+    //   $table->timestamps();
+    // });
+    Schema::connection($this->connection)
+      ->table('comments', function (Blueprint $collection)
+      {
+        // $collection->index('title');
+        $collection->string('title');
+        $collection->string('body');
+      });
   }
 
   /**
@@ -26,6 +35,11 @@ class CreateCommentsTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('comments');
+    // Schema::dropIfExists('comments');
+    Schema::connection($this->connection)
+      ->table('comments', function (Blueprint $collection)
+      {
+        $collection->drop();
+      });
   }
 }
