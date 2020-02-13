@@ -18,5 +18,10 @@
     <dt>Updated_at: </dt>
     <dd>{{ $comment->updated_at }}</dd>
   </dl>
+  <p>
+    <a href="{{ action('CommentsController@edit', $comment->id) }}">
+      ［編集］
+    </a>
+  </p>
 </body>
 </html>

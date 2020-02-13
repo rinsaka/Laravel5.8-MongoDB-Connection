@@ -17,4 +17,6 @@ Route::get('/', function () {
 
 Route::get('/comments', 'CommentsController@index');
 Route::get('/comments/{_id}', 'CommentsController@show');
+Route::get('/comments/{_id}/edit', 'CommentsController@edit');
 Route::post('/comments', 'CommentsController@store');
+Route::patch('/comments', 'CommentsController@update')->name('comment_update');
