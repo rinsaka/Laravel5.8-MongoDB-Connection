@@ -25,12 +25,18 @@
       @csrf
       <p>
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" value="">
+        <input type="text" name="title" id="title" value="{{ old('title') }}">
+        @if ($errors->has('title'))
+          <span class="error">{{ $errors->first('title') }}</span>
+        @endif
       </p>
 
       <p>
         <label for="body">Body: </label>
-        <textarea name="body" id="body" rows="4" cols="50"></textarea>
+        <textarea name="body" id="body" rows="4" cols="50">{{ old('body') }}</textarea>
+        @if ($errors->has('body'))
+          <span class="error">{{ $errors->first('body') }}</span>
+        @endif
       </p>
       <p>
         <input type="submit" value="投稿">
