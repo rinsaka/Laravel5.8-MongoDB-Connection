@@ -15,17 +15,12 @@ class CreateCommentsTable extends Migration
    */
   public function up()
   {
-    // Schema::create('comments', function (Blueprint $table) {
-    //   $table->bigIncrements('id');
-    //   $table->timestamps();
-    // });
-    Schema::connection($this->connection)
-      ->table('comments', function (Blueprint $collection)
-      {
-        // $collection->index('title');
-        $collection->string('title');
-        $collection->string('body');
-      });
+    // Schema::connection($this->connection)
+    //   ->table('comments', function (Blueprint $collection)
+    //   {
+    //     $collection->string('title');
+    //     $collection->string('body');
+    //   });
   }
 
   /**
@@ -35,7 +30,6 @@ class CreateCommentsTable extends Migration
    */
   public function down()
   {
-    // Schema::dropIfExists('comments');
     Schema::connection($this->connection)
       ->table('comments', function (Blueprint $collection)
       {
